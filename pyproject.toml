@@ -1,0 +1,47 @@
+[build-system]
+requires = ["pdm-backend >= 2.0.0"]
+build-backend = "pdm.backend"
+
+[project]
+name = "django-epfl-web2018"
+dynamic = ["version"]
+requires-python = ">= 3.8"
+dependencies = [
+  "django >= 4.2",
+]
+description = "Web2018 for Django."
+keywords = ["django"]
+readme = "README.md"
+authors = [
+  {name = "William Belle", email = "william.belle@gmail.com"},
+]
+classifiers = [
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.2",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/epfl-si/django-epfl-web2018"
+Source = "https://github.com/epfl-si/django-epfl-web2018"
+Tracker = "https://github.com/epfl-si/django-epfl-web2018/issues"
+Changelog = "https://github.com/epfl-si/django-epfl-web2018/blob/main/CHANGELOG.md"
+
+[tool.pdm.version]
+source = "file"
+path = "django_epfl_web2018/__init__.py"
+
+[tool.pdm.build]
+source-includes = ["CHANGELOG.md", "README.md"]
