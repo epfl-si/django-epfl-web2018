@@ -1,0 +1,3 @@
+# Only run once in latest Python version and used in VS Code.
+
+flake8==7.3.0
