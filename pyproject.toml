@@ -45,3 +45,7 @@ path = "django_epfl_web2018/__init__.py"
 
 [tool.pdm.build]
 source-includes = ["CHANGELOG.md", "README.md"]
+
+[tool.black]
+line-length = 80
+include = '\.pyi?$'
