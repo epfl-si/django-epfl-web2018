@@ -1,0 +1,72 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+
+  {# Required meta tags #}
+  <meta charset="utf-8" />
+
+  {# Page title #}
+  <title>{% block web2018_title %}django-epfl-web2018 template title{% endblock %} - EPFL</title>
+
+  {% include "web2018/includes/head.html" %}
+
+  {% block web2018_extra_link %}{% endblock %}
+
+</head>
+<body>
+  <div class="site d-flex flex-column min-vh-100">
+
+    {% include "web2018/includes/access-nav-"|add:LANGUAGE_CODE|add:".html" %}
+
+    <header class="header header-light">
+      <div class="header-light-content">
+
+        {% include "web2018/includes/logo.html" %}
+
+        <p class="site-title">
+          <a href="/">
+            {% block web2018_app_name %}django-epfl-web2018 app name{% endblock %}
+          </a>
+        </p>
+
+        {% block web2018_header %}{% endblock %}
+
+        {% include "web2018/includes/mobile-menu.html" %}
+
+      </div>
+    </header>
+
+    <div class="main-container mb-4">
+
+      {# Breadcrumb #}
+      {% block web2018_breadcrumb %}{% endblock %}
+
+      {# Nav-Main (Menu Hamburger) #}
+      {% block web2018_nav_main %}{% endblock %}
+
+      {# Main #}
+      <div class="w-100 pb-4">
+        {% block web2018_content %}{% endblock %}
+      </div>
+
+    </div>
+
+    {# Footer #}
+    <div class="mt-auto">
+      <div class="bg-gray-100 pt-5">
+        <div class="container">
+          {% include "web2018/includes/footer-light-"|add:LANGUAGE_CODE|add:".html" %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {% include "web2018/includes/footer-scripts.html" %}
+
+  {% block web2018_extra_js %}{% endblock %}
+
+</body>
+</html>

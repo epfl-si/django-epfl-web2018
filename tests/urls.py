@@ -18,8 +18,10 @@ Including another URLconf
 from app.views import error_400, error_403, error_500
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path("", TemplateView.as_view(template_name="base.html")),
     path("admin/", admin.site.urls),
     path("400/", error_400, name="error_400"),
     path("403/", error_403, name="error_403"),
