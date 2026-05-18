@@ -1,0 +1,4 @@
+# Latest version for tools should be fine.
+
+pdm
+tox
