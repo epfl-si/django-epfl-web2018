@@ -1,6 +1,4 @@
-from django.contrib import messages
 from django.core.exceptions import BadRequest, PermissionDenied
-from django.shortcuts import render
 
 
 def error_400(request):
