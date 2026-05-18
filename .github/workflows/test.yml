@@ -1,0 +1,37 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    name: Python ${{ matrix.python }} CI
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v6
+
+      - name: Setup Python ${{ matrix.python }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip tox
+
+      - name: Tox tests
+        run: |
+          tox -v
+
+      - name: Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          name: Python ${{ matrix.python }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
