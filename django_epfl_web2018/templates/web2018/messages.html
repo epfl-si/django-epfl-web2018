@@ -1,0 +1,12 @@
+{% load i18n web2018 %}
+
+<div id="message" class="container">
+  {% for message in messages %}
+    <div class="{{ message|web2018_message_classes }} alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="{% trans 'Close' %}">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+  {% endfor %}
+</div>

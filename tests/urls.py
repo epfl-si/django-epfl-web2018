@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from app.views import error_400, error_403, error_500
+from app.views import error_400, error_403, error_500, message_warning
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
@@ -26,6 +26,7 @@ urlpatterns = [
     path("400/", error_400, name="error_400"),
     path("403/", error_403, name="error_403"),
     path("500/", error_500, name="error_500"),
+    path("warning/", message_warning, name="warning"),
 ]
 
 handler400 = "django_epfl_web2018.views.error_400"
