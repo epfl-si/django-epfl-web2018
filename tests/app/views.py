@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.core.exceptions import BadRequest, PermissionDenied
+from django.shortcuts import render
 
 
 def error_400(request):
@@ -11,3 +13,12 @@ def error_403(request):
 
 def error_500(request):
     raise Exception("This is a 500 error")
+
+
+def message_warning(request):
+    messages.warning(
+        request,
+        "Operation completed successfully.",
+        extra_tags="update",
+    )
+    return render(request, "base.html")

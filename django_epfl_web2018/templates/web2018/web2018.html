@@ -1,4 +1,5 @@
-{% load i18n %}
+<!doctype html>
+{% load i18n web2018 %}
 {% get_current_language as LANGUAGE_CODE %}
 
 <html lang="{{ LANGUAGE_CODE }}">
@@ -42,6 +43,9 @@
 
       {# Breadcrumb #}
       {% block web2018_breadcrumb %}{% endblock %}
+
+      {# Messages framework #}
+      {% web2018_messages %}
 
       {# Nav-Main (Menu Hamburger) #}
       {% block web2018_nav_main %}{% endblock %}
