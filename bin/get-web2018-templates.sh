@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 WEB2018_VERSION="8.5.0"
-WEB2018_STATIC_PATH="django_epfl_web2018/static/icons"
+WEB2018_STATIC_PATH="django_epfl_web2018/static/web2018/icons"
 WEB2018_TEMPLATES_PATH="django_epfl_web2018/templates/web2018/includes"
 WEB2018_URL="https://web2018.epfl.ch/${WEB2018_VERSION}/download-me.html"
 
