@@ -42,7 +42,22 @@
     <div class="main-container mb-4">
 
       {# Breadcrumb #}
-      {% block web2018_breadcrumb %}{% endblock %}
+      {% block web2018_breadcrumb_container %}
+        <div class="breadcrumb-container pb-0 mb-0">
+          <nav id="breadcrumb-wrapper" class="breadcrumb-wrapper" aria-label="{% trans 'Breadcrumb' %}">
+            <ol class="breadcrumb pb-0">
+              <li class="breadcrumb-item">
+                <a href="//www.epfl.ch" title="{% trans 'Home' %}" aria-label="{% trans 'Home' %}">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-home"></use>
+                  </svg>
+                </a>
+              </li>
+              {% block web2018_breadcrumb %}{% endblock %}
+            </ol>
+          </nav>
+        </div>
+      {% endblock %}
 
       {# Messages framework #}
       {% web2018_messages %}
