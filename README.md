@@ -42,6 +42,25 @@ handler404 = "django_epfl_web2018.views.error_404"
 handler500 = "django_epfl_web2018.views.error_500"
 ```
 
+### Base Template
+
+> **File**: `templates/web2018/web2018.html`
+
+This is the **master template** for all pages. It defines the overall
+structure and layout.
+
+### Available Template Blocks (Override Points)
+
+- `web2018_title` → Page title.
+- `web2018_extra_link` → Extra tags inside `<head>`.
+- `web2018_app_name` → Application name.
+- `web2018_header` → Custom header content (search, user menu, language).
+- `web2018_breadcrumb_container` → Breadcrumb container.
+- `web2018_breadcrumb` → Breadcrumb items.
+- `web2018_nav_main` → Main navigation (mobile).
+- `web2018_content` → Page content.
+- `web2018_extra_js` → Extra tags just before `</body>`.
+
 [github-actions-image]: https://github.com/epfl-si/django-epfl-web2018/actions/workflows/test.yml/badge.svg?branch=main
 [github-actions-url]: https://github.com/epfl-si/django-epfl-web2018/actions/workflows/test.yml
 [codecov-image]: https://codecov.io/gh/epfl-si/django-epfl-web2018/graph/badge.svg?token=484E6QJKKJ
