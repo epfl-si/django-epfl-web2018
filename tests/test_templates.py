@@ -14,3 +14,7 @@ class TestTemplates(TestCase):
             "Test App",
             response.content.decode(),
         )
+        self.assertIn(
+            "About",
+            response.content.decode(),
+        )
