@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.0.4 / 2026-05-26
+
+### Features
+
+- Update Web2018 to 8.5.1 (#13)
+- Add breadcrumb (#11)
+
+### Others
+
+- Add template documentation (#12)
+
 ## v0.0.3 / 2026-05-21
 
 ### Features
