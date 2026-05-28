@@ -2,7 +2,7 @@
 {% load i18n web2018 %}
 {% get_current_language as LANGUAGE_CODE %}
 
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="{{ LANGUAGE_CODE }}|default:'en'">
 <head>
 
   {# Required meta tags #}
