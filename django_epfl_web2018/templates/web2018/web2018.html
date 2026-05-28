@@ -19,7 +19,11 @@
 <body>
   <div class="site d-flex flex-column min-vh-100">
 
-    {% include "web2018/includes/access-nav-"|add:LANGUAGE_CODE|add:".html" %}
+    {% if LANGUAGE_CODE in 'en fr de' %}
+      {% include "web2018/includes/access-nav-"|add:LANGUAGE_CODE|add:".html" %}
+    {% else %}
+      {% include "web2018/includes/access-nav-en.html" %}
+    {% endif %}
 
     <header class="header header-light">
       <div class="header-light-content">
@@ -76,7 +80,11 @@
     <div class="mt-auto">
       <div class="bg-gray-100 pt-5">
         <div class="container">
-          {% include "web2018/includes/footer-light-"|add:LANGUAGE_CODE|add:".html" %}
+          {% if LANGUAGE_CODE in 'en fr de' %}
+            {% include "web2018/includes/footer-light-"|add:LANGUAGE_CODE|add:".html" %}
+          {% else %}
+            {% include "web2018/includes/footer-light-en.html" %}
+          {% endif %}
         </div>
       </div>
     </div>
