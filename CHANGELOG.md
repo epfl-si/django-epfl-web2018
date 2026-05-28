@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.0.5 / 2026-05-28
+
+### Features
+
+- Add Italian language (#17)
+- Add fallback mechanism for includes (#16)
+
+### Fixes
+
+- Fix breadcrumb-container margin/padding (#15)
+
 ## v0.0.4 / 2026-05-26
 
 ### Features
