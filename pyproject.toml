@@ -10,7 +10,7 @@ dependencies = [
   "django >= 4.2",
 ]
 description = "Web2018 for Django."
-keywords = ["django"]
+keywords = ["django", "epfl", "web2018", "template", "frontend", "ui"]
 readme = "README.md"
 authors = [
   {name = "William Belle", email = "william.belle@gmail.com"},
@@ -31,6 +31,10 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities",
 ]
 
 [project.urls]
