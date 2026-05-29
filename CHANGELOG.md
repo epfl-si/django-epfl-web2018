@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.0.6 / 2026-05-29
+
+### Fixes
+
+- Fix html lang attribute (#19)
+
+### Others
+
+- Improve project keywords and classifiers (#20)
+
 ## v0.0.5 / 2026-05-28
 
 ### Features
