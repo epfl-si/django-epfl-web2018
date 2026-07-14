@@ -59,6 +59,7 @@ structure and layout.
 - `web2018_breadcrumb` → Breadcrumb items.
 - `web2018_nav_main` → Main navigation (mobile).
 - `web2018_content` → Page content.
+- `web2018_pre_footer` → Custom content that sits over/above the footer.
 - `web2018_extra_js` → Extra tags just before `</body>`.
 
 [github-actions-image]: https://github.com/epfl-si/django-epfl-web2018/actions/workflows/test.yml/badge.svg?branch=main
