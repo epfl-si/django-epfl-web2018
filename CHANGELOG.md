@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.0.7 / 2026-07-15
+
+### Features
+
+- Add Django 6.0 support (#23)
+- Add block web2018_pre_footer (#22)
+
 ## v0.0.6 / 2026-05-29
 
 ### Fixes
