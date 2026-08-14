@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.0.8 / 2026-08-14
+
+### Features
+
+- Add Django 6.1 support (#26)
+- Update Web2018 to 8.7.0 (#25)
+
 ## v0.0.7 / 2026-07-15
 
 ### Features
