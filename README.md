@@ -9,7 +9,7 @@ Web2018 for Django.
 ## Requirements
 
 - Python 3.8 or later
-- Django 4.2, 5.2 or 6.0
+- Django 4.2, 5.2, 6.0 or 6.1
 
 ## Installation
 
