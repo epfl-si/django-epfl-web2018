@@ -1,4 +1,7 @@
+from collections.abc import Mapping
+
 from django import template
+from django.conf import settings
 from django.contrib.messages import constants as message_constants
 from django.template import Context
 from django.template.loader import get_template
@@ -86,3 +89,29 @@ def web2018_messages(context, *args, **kwargs):
 
     template = get_template("web2018/messages.html")
     return template.render(context=context)
+
+
+@register.simple_tag
+def web2018_should_show_breadcrumb():
+    """Determine if breadcrumb should be shown.
+
+    This template tag checks the WEB2018['SHOW_BREADCRUMB'] Django setting.
+    If not defined, it defaults to True.
+    A malformed WEB2018 setting (not a Mapping) is treated as unconfigured.
+
+    Settings format (settings.py):
+        WEB2018 = {
+            "SHOW_BREADCRUMB": True,  # or False to hide globally
+        }
+
+    Returns:
+        bool: True if breadcrumb should be shown, False otherwise
+
+    Example usage in template:
+        {% web2018_should_show_breadcrumb as show_breadcrumb %}
+        {% if show_breadcrumb %}...{% endif %}
+    """
+    web2018_settings = getattr(settings, "WEB2018", None)
+    if not isinstance(web2018_settings, Mapping):
+        return True
+    return bool(web2018_settings.get("SHOW_BREADCRUMB", True))
