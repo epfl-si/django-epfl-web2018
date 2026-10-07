@@ -47,20 +47,23 @@
 
       {# Breadcrumb #}
       {% block web2018_breadcrumb_container %}
-        <div class="breadcrumb-container">
-          <nav id="breadcrumb-wrapper" class="breadcrumb-wrapper" aria-label="{% trans 'Breadcrumb' %}">
-            <ol class="breadcrumb pb-0">
-              <li class="breadcrumb-item">
-                <a href="//www.epfl.ch" title="{% trans 'Home' %}" aria-label="{% trans 'Home' %}">
-                  <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-home"></use>
-                  </svg>
-                </a>
-              </li>
-              {% block web2018_breadcrumb %}{% endblock %}
-            </ol>
-          </nav>
-        </div>
+        {% web2018_should_show_breadcrumb as show_breadcrumb %}
+        {% if show_breadcrumb %}
+          <div class="breadcrumb-container">
+            <nav id="breadcrumb-wrapper" class="breadcrumb-wrapper" aria-label="{% trans 'Breadcrumb' %}">
+              <ol class="breadcrumb pb-0">
+                <li class="breadcrumb-item">
+                  <a href="//www.epfl.ch" title="{% trans 'Home' %}" aria-label="{% trans 'Home' %}">
+                    <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-home"></use>
+                    </svg>
+                  </a>
+                </li>
+                {% block web2018_breadcrumb %}{% endblock %}
+              </ol>
+            </nav>
+          </div>
+        {% endif %}
       {% endblock %}
 
       {# Messages framework #}

@@ -62,6 +62,18 @@ structure and layout.
 - `web2018_pre_footer` → Custom content that sits over/above the footer.
 - `web2018_extra_js` → Extra tags just before `</body>`.
 
+### Configuration
+
+Optional dictionary-based settings for Web2018 configuration. If the
+`WEB2018` setting is not defined, defaults apply.
+
+```python
+WEB2018 = {
+  # Breadcrumb visibility (Default: True).
+  "SHOW_BREADCRUMB": False,
+}
+```
+
 [github-actions-image]: https://github.com/epfl-si/django-epfl-web2018/actions/workflows/test.yml/badge.svg?branch=main
 [github-actions-url]: https://github.com/epfl-si/django-epfl-web2018/actions/workflows/test.yml
 [codecov-image]: https://codecov.io/gh/epfl-si/django-epfl-web2018/graph/badge.svg?token=484E6QJKKJ
