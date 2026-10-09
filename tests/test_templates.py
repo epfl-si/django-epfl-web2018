@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.test.utils import override_settings
 
 
 class TestTemplates(TestCase):
@@ -16,5 +17,13 @@ class TestTemplates(TestCase):
         )
         self.assertIn(
             "About",
+            response.content.decode(),
+        )
+
+    @override_settings(WEB2018={"SHOW_BREADCRUMB": False})
+    def test_home_with_settings(self):
+        response = self.client.get("/")
+        self.assertNotIn(
+            "breadcrumb-container",
             response.content.decode(),
         )
