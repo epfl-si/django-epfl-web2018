@@ -2,7 +2,7 @@ from collections.abc import Mapping
 
 from django.conf import settings
 
-DEFAULTS = {"SHOW_BREADCRUMB": True}
+DEFAULTS = {"SHOW_BREADCRUMB": True, "SITE_TITLE_SUFFIX": "EPFL"}
 
 
 def _user_settings():

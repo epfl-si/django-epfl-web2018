@@ -18,6 +18,7 @@ class TestSettings(TestCase):
             {
                 "web2018_settings": {
                     "SHOW_BREADCRUMB": False,
+                    "SITE_TITLE_SUFFIX": "EPFL",
                     "OTHER": "value",
                 }
             },
@@ -29,7 +30,12 @@ class TestSettings(TestCase):
             del settings.WEB2018
             context = web2018_settings(self.factory.get("/"))
             self.assertEqual(
-                {"web2018_settings": {"SHOW_BREADCRUMB": True}},
+                {
+                    "web2018_settings": {
+                        "SHOW_BREADCRUMB": True,
+                        "SITE_TITLE_SUFFIX": "EPFL",
+                    }
+                },
                 context,
             )
 
@@ -37,7 +43,12 @@ class TestSettings(TestCase):
     def test_settings_none(self):
         context = web2018_settings(self.factory.get("/"))
         self.assertEqual(
-            {"web2018_settings": {"SHOW_BREADCRUMB": True}},
+            {
+                "web2018_settings": {
+                    "SHOW_BREADCRUMB": True,
+                    "SITE_TITLE_SUFFIX": "EPFL",
+                }
+            },
             context,
         )
 
@@ -45,7 +56,12 @@ class TestSettings(TestCase):
     def test_settings_is_invalid(self):
         context = web2018_settings(self.factory.get("/"))
         self.assertEqual(
-            {"web2018_settings": {"SHOW_BREADCRUMB": True}},
+            {
+                "web2018_settings": {
+                    "SHOW_BREADCRUMB": True,
+                    "SITE_TITLE_SUFFIX": "EPFL",
+                }
+            },
             context,
         )
 
@@ -53,7 +69,12 @@ class TestSettings(TestCase):
     def test_settings_is_empty(self):
         context = web2018_settings(self.factory.get("/"))
         self.assertEqual(
-            {"web2018_settings": {"SHOW_BREADCRUMB": True}},
+            {
+                "web2018_settings": {
+                    "SHOW_BREADCRUMB": True,
+                    "SITE_TITLE_SUFFIX": "EPFL",
+                }
+            },
             context,
         )
 

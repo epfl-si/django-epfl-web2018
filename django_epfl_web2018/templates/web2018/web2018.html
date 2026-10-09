@@ -9,7 +9,8 @@
   <meta charset="utf-8" />
 
   {# Page title #}
-  <title>{% block web2018_title %}django-epfl-web2018 template title{% endblock %} - EPFL</title>
+  {% web2018_setting 'SITE_TITLE_SUFFIX' as site_title_suffix %}
+  <title>{% block web2018_title %}django-epfl-web2018 template title{% endblock %}{% if site_title_suffix %} - {{ site_title_suffix }}{% endif %}</title>
 
   {% include "web2018/includes/head.html" %}
 
