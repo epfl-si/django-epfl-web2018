@@ -47,7 +47,7 @@
 
       {# Breadcrumb #}
       {% block web2018_breadcrumb_container %}
-        {% web2018_should_show_breadcrumb as show_breadcrumb %}
+        {% web2018_setting 'SHOW_BREADCRUMB' as show_breadcrumb %}
         {% if show_breadcrumb %}
           <div class="breadcrumb-container">
             <nav id="breadcrumb-wrapper" class="breadcrumb-wrapper" aria-label="{% trans 'Breadcrumb' %}">
