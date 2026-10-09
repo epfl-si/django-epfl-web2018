@@ -14,18 +14,6 @@ def web2018_settings(request):
     package defaults and, when the setting is malformed (not a
     Mapping), only the package defaults are exposed.
 
-    Usage (settings.py):
-        TEMPLATES = [
-            {
-                "OPTIONS": {
-                    "context_processors": [
-                        ...
-                        "django_epfl_web2018.context_processors.web2018_settings",
-                    ],
-                },
-            },
-        ]
-
     Args:
         request: The current HTTP request (unused).
 
