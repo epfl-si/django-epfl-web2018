@@ -71,6 +71,9 @@ Optional dictionary-based settings for Web2018 configuration. If the
 WEB2018 = {
   # Breadcrumb visibility (Default: True).
   "SHOW_BREADCRUMB": False,
+
+  # Site title suffix appended to the page title (Default: "EPFL").
+  "SITE_TITLE_SUFFIX": "My Unit",
 }
 ```
 

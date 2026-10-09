@@ -20,10 +20,25 @@ class TestTemplates(TestCase):
             response.content.decode(),
         )
 
-    @override_settings(WEB2018={"SHOW_BREADCRUMB": False})
+    @override_settings(
+        WEB2018={"SHOW_BREADCRUMB": False, "SITE_TITLE_SUFFIX": "My Site"}
+    )
     def test_home_with_settings(self):
         response = self.client.get("/")
         self.assertNotIn(
             "breadcrumb-container",
+            response.content.decode(),
+        )
+        self.assertIn(
+            "<title>Test Home - My Site</title>",
+            response.content.decode(),
+        )
+
+    @override_settings(WEB2018={"SITE_TITLE_SUFFIX": ""})
+    def test_home_with_empty_title_suffix(self):
+        response = self.client.get("/")
+        self.assertEqual(200, response.status_code)
+        self.assertIn(
+            "<title>Test Home</title>",
             response.content.decode(),
         )
