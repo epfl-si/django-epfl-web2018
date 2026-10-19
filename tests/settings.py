@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_epfl_web2018",
     "app",
+    "django_epfl_web2018",
 ]
 
 MIDDLEWARE = [

@@ -62,6 +62,10 @@ structure and layout.
 - `web2018_pre_footer` → Custom content that sits over/above the footer.
 - `web2018_extra_js` → Extra tags just before `</body>`.
 
+### Available Template Includes (Override Points)
+
+- `footer-extra-links.html` → Extra links in the footer's legal links block.
+
 ### Configuration
 
 Optional dictionary-based settings for Web2018 configuration. If the

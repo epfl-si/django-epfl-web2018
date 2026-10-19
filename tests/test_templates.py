@@ -23,6 +23,10 @@ class TestTemplates(TestCase):
             "googletagmanager.com",
             response.content.decode(),
         )
+        self.assertIn(
+            "News app",
+            response.content.decode(),
+        )
 
     @override_settings(
         WEB2018={"SHOW_BREADCRUMB": False, "SITE_TITLE_SUFFIX": "My Site"}
