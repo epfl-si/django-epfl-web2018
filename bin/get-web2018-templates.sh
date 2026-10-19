@@ -1,29 +1,52 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 WEB2018_VERSION="8.7.0"
-WEB2018_STATIC_PATH="django_epfl_web2018/static/web2018/icons"
 WEB2018_TEMPLATES_PATH="django_epfl_web2018/templates/web2018/includes"
-WEB2018_URL="https://web2018.epfl.ch/${WEB2018_VERSION}/download-me.html"
+WEB2018_STATIC_PATH="django_epfl_web2018/static/web2018/icons"
+WEB2018_RELEASES_URL="https://raw.githubusercontent.com/epfl-si/epfl-theme-elements/v${WEB2018_VERSION}/dist-cdn/releases.tar.xz"
+WEB2018_RELEASES_PREFIX="vhosts/web2018.epfl.ch/${WEB2018_VERSION}"
 
 # Ensure required tools are available
-if ! command -v wget &> /dev/null; then
-  echo "Error: wget is not installed." >&2
-  exit 1
-fi
+for tool in wget tar; do
+  if ! command -v "${tool}" &> /dev/null; then
+    echo "Error: ${tool} is not installed." >&2
+    exit 1
+  fi
+done
 
-# Mirror templates
+TMP_DIR="$(mktemp -d)" || { echo "Error: mktemp failed." >&2; exit 1; }
+trap 'rm -rf "${TMP_DIR}"' EXIT
+
+# Download releases tarball
+echo "Downloading ${WEB2018_RELEASES_URL}..."
 wget \
-  --no-parent \
-  --no-directories \
-  --recursive \
-  --timestamping \
-  --level=1 \
-  --directory-prefix="${WEB2018_TEMPLATES_PATH}" \
-  "${WEB2018_URL}"
+  --quiet \
+  --output-document="${TMP_DIR}/releases.tar.xz" \
+  "${WEB2018_RELEASES_URL}" || { echo "Error: failed to download ${WEB2018_RELEASES_URL}" >&2; exit 1; }
+
+# Extract templates (includes and error pages)
+echo "Extracting templates..."
+tar \
+  --extract \
+  --file="${TMP_DIR}/releases.tar.xz" \
+  --directory="${WEB2018_TEMPLATES_PATH}" \
+  --strip-components=4 \
+  "${WEB2018_RELEASES_PREFIX}/includes" \
+  "${WEB2018_RELEASES_PREFIX}/errors"
+
+# Extract favicon
+echo "Extracting favicon..."
+tar \
+  --extract \
+  --file="${TMP_DIR}/releases.tar.xz" \
+  --directory="${WEB2018_STATIC_PATH}" \
+  --strip-components=4 \
+  "${WEB2018_RELEASES_PREFIX}/icons/favicon.ico"
 
 TEMPLATES_TO_REMOVE=(
-  "robots.txt"
-  "download-me.html"
+  "cf-waf-block.html"
+  "cf-waf-challenge.html"
   "drawer-de.html"
   "drawer-en.html"
   "drawer-fr.html"
@@ -35,8 +58,3 @@ for file in "${TEMPLATES_TO_REMOVE[@]}"; do
     rm "${WEB2018_TEMPLATES_PATH}/${file}"
   fi
 done
-
-wget \
-  --timestamping \
-  --directory-prefix="${WEB2018_STATIC_PATH}" \
-  https://web2018.epfl.ch/${WEB2018_VERSION}/icons/favicon.ico
