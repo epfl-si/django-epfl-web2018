@@ -1,7 +1,9 @@
-<!-- GTM-START -->
+{% load web2018 %}
+{% web2018_setting 'ENABLE_ANALYTICS' as enable_analytics %}
+{% if enable_analytics %}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJGBG5R"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- GTM-END -->
+{% endif %}
 
 <script>
   svgPath = 'https://web2018.epfl.ch/8.8.0/icons/icons.svg';

@@ -19,6 +19,7 @@ class TestSettings(TestCase):
                 "web2018_settings": {
                     "SHOW_BREADCRUMB": False,
                     "SITE_TITLE_SUFFIX": "EPFL",
+                    "ENABLE_ANALYTICS": True,
                     "OTHER": "value",
                 }
             },
@@ -34,6 +35,7 @@ class TestSettings(TestCase):
                     "web2018_settings": {
                         "SHOW_BREADCRUMB": True,
                         "SITE_TITLE_SUFFIX": "EPFL",
+                        "ENABLE_ANALYTICS": True,
                     }
                 },
                 context,
@@ -47,6 +49,7 @@ class TestSettings(TestCase):
                 "web2018_settings": {
                     "SHOW_BREADCRUMB": True,
                     "SITE_TITLE_SUFFIX": "EPFL",
+                    "ENABLE_ANALYTICS": True,
                 }
             },
             context,
@@ -60,6 +63,7 @@ class TestSettings(TestCase):
                 "web2018_settings": {
                     "SHOW_BREADCRUMB": True,
                     "SITE_TITLE_SUFFIX": "EPFL",
+                    "ENABLE_ANALYTICS": True,
                 }
             },
             context,
@@ -73,6 +77,7 @@ class TestSettings(TestCase):
                 "web2018_settings": {
                     "SHOW_BREADCRUMB": True,
                     "SITE_TITLE_SUFFIX": "EPFL",
+                    "ENABLE_ANALYTICS": True,
                 }
             },
             context,

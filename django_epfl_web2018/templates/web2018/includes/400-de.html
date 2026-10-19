@@ -1,3 +1,5 @@
+{% load web2018 %}
+{% web2018_setting 'ENABLE_ANALYTICS' as enable_analytics %}
 <!doctype html>
 <html lang="de">
 <head>
@@ -15,13 +17,13 @@
   
   <link rel="stylesheet" href="//web2018.epfl.ch/8.8.0/css/elements.min.css">
   
-  <!-- GTM-START -->
+  {% if enable_analytics %}
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PJGBG5R');</script>
-  <!-- GTM-END -->
+  {% endif %}
 
 </head>
 <body>
@@ -166,10 +168,10 @@
 
   </div>
 
-  <!-- GTM-START -->
+  {% if enable_analytics %}
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJGBG5R"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- GTM-END -->
+  {% endif %}
   
   <script>
     svgPath = 'https://web2018.epfl.ch/8.8.0/icons/icons.svg';

@@ -74,6 +74,9 @@ WEB2018 = {
 
   # Site title suffix appended to the page title (Default: "EPFL").
   "SITE_TITLE_SUFFIX": "My Unit",
+
+  # Enable Google Tag Manager analytics (Default: True).
+  "ENABLE_ANALYTICS": False,
 }
 ```
 

@@ -59,3 +59,18 @@ for file in "${TEMPLATES_TO_REMOVE[@]}"; do
     rm "${WEB2018_TEMPLATES_PATH}/${file}"
   fi
 done
+
+# Replace GTM markers with Django template conditionals
+# so analytics can be opted out.
+echo "Replacing GTM markers with Django conditionals..."
+for template in "${WEB2018_TEMPLATES_PATH}"/*.html; do
+  if grep -qF "<!-- GTM-START -->" "${template}"; then
+    sed -i \
+      -e '1i {% load web2018 %}' \
+      -e "1i {% web2018_setting 'ENABLE_ANALYTICS' as enable_analytics %}" \
+      -e 's|<!-- GTM-START -->|{% if enable_analytics %}|' \
+      -e 's|<!-- GTM-END -->|{% endif %}|' \
+      "${template}"
+    echo "  Updated $(basename "${template}")"
+  fi
+done
