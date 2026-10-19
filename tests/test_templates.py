@@ -19,6 +19,10 @@ class TestTemplates(TestCase):
             "About",
             response.content.decode(),
         )
+        self.assertIn(
+            "googletagmanager.com",
+            response.content.decode(),
+        )
 
     @override_settings(
         WEB2018={"SHOW_BREADCRUMB": False, "SITE_TITLE_SUFFIX": "My Site"}
@@ -40,5 +44,13 @@ class TestTemplates(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertIn(
             "<title>Test Home</title>",
+            response.content.decode(),
+        )
+
+    @override_settings(WEB2018={"ENABLE_ANALYTICS": False})
+    def test_gtm_opt_out(self):
+        response = self.client.get("/")
+        self.assertNotIn(
+            "googletagmanager.com",
             response.content.decode(),
         )
