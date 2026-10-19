@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.0.9 / 2026-10-19
+
+### Features
+
+- Add option to hide breadcrumb (#28)
+- Add option to configure title suffix (#30)
+- Add option to opt out of Google Tag Manager (#33)
+- Allow overriding extra footer links via template include (#34)
+- Replace breadcrumb tag with generic Web2018 settings API (#29)
+- Update Web2018 to 8.8.0 (#32)
+
+### Others
+
+- Fetch Web2018 templates from releases tarball (#31)
+
 ## v0.0.8 / 2026-08-14
 
 ### Features
