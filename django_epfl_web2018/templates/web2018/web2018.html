@@ -20,7 +20,7 @@
 <body>
   <div class="site d-flex flex-column min-vh-100">
 
-    {% if LANGUAGE_CODE in 'en fr de' %}
+    {% if LANGUAGE_CODE in 'en fr de it' %}
       {% include "web2018/includes/access-nav-"|add:LANGUAGE_CODE|add:".html" %}
     {% else %}
       {% include "web2018/includes/access-nav-en.html" %}
@@ -85,7 +85,7 @@
       {% block web2018_pre_footer %}{% endblock %}
       <div class="bg-gray-100 pt-5">
         <div class="container">
-          {% if LANGUAGE_CODE in 'en fr de' %}
+          {% if LANGUAGE_CODE in 'en fr de it' %}
             {% include "web2018/includes/footer-light-"|add:LANGUAGE_CODE|add:".html" %}
           {% else %}
             {% include "web2018/includes/footer-light-en.html" %}
