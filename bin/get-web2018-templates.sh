@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-WEB2018_VERSION="8.7.0"
+WEB2018_VERSION="8.8.0"
 WEB2018_TEMPLATES_PATH="django_epfl_web2018/templates/web2018/includes"
 WEB2018_STATIC_PATH="django_epfl_web2018/static/web2018/icons"
 WEB2018_RELEASES_URL="https://raw.githubusercontent.com/epfl-si/epfl-theme-elements/v${WEB2018_VERSION}/dist-cdn/releases.tar.xz"
@@ -50,6 +50,7 @@ TEMPLATES_TO_REMOVE=(
   "drawer-de.html"
   "drawer-en.html"
   "drawer-fr.html"
+  "drawer-it.html"
 )
 
 for file in "${TEMPLATES_TO_REMOVE[@]}"; do
