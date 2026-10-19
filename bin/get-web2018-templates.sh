@@ -74,3 +74,15 @@ for template in "${WEB2018_TEMPLATES_PATH}"/*.html; do
     echo "  Updated $(basename "${template}")"
   fi
 done
+
+# Replace FOOTER-EXTRA-LINKS markers with a Django template include
+# so downstream projects can override extra footer links.
+echo "Replacing FOOTER-EXTRA-LINKS markers with a Django include..."
+for template in "${WEB2018_TEMPLATES_PATH}"/*.html; do
+  if grep -qF "<!-- FOOTER-EXTRA-LINKS -->" "${template}"; then
+    sed -i \
+      -e 's|<!-- FOOTER-EXTRA-LINKS -->|{% include "web2018/includes/footer-extra-links.html" %}|' \
+      "${template}"
+    echo "  Updated $(basename "${template}")"
+  fi
+done
